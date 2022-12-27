@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-function(set_generic_compile_options target_name)
+function(set_generic_compile_options target_name access)
     if(MSVC)
         set(compile_opts
             /W4
@@ -63,5 +63,5 @@ function(set_generic_compile_options target_name)
         endif()
     endif()
 
-    target_compile_options(${target_name} PUBLIC ${compile_opts})
+    target_compile_options(${target_name} ${access} ${compile_opts})
 endfunction()
